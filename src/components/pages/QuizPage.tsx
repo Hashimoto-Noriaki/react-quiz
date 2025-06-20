@@ -1,5 +1,9 @@
+import Display  from '../Display/Display';
+
 export default function QuizPage()  {
     return (
-        <div>QuizPage</div>
+        <>
+            <Display/>
+        </>
     )
 }
