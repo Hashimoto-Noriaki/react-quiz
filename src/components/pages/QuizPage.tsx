@@ -35,7 +35,7 @@ export default function QuizPage()  {
 
     return (
         <>
-            {quizData[quizIndex] && <Display>{`Q1. ${quizData[quizIndex].question}`}</Display>}
+            {quizData[quizIndex] && <Display>{`Q${quizIndex +1}. ${quizData[quizIndex].question}`}</Display>}
             {quizData[quizIndex] && quizData[quizIndex].options.map((option,index)=> 
                 <Button key={`option-${index}`}onClick={()=>handleClick(index)}>{option}</Button>
             )}
