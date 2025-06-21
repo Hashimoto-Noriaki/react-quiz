@@ -1,4 +1,5 @@
-import { useLocation } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
+import { ROUTES } from '../../const';
 
 export default function ResultPage() {
     const location = useLocation();
@@ -9,6 +10,9 @@ export default function ResultPage() {
             <h1>Result</h1>
             <p>あなたの正解数は...</p>
             <p>{`全${maxQuizLen}問中、${correctNumLen}問正解でした‼︎`}</p>
+            <br/>
+            <Link to={ROUTES.HOME}></Link>
+
         </>
     )
 }
