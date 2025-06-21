@@ -23,9 +23,13 @@ export default function QuizPage()  {
 
     useEffect(()=> {
         if(answerLogs.length === MAX_QUIZ_LEN){
+            const correctNum = answerLogs.filter((answer)=> {//filterは配列に対して使えるメソッドで、配列の中から条件に合うものだけを取り出して新しい配列を作る
+                return answer === true
+            })
             navigation(ROUTES.RESULT, {
                 state: {
                     maxQuizLen: MAX_QUIZ_LEN,
+                    correctNum: correctNum
                 }
             });
         }
