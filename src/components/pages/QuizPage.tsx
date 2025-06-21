@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../const';
 import Display  from '../Display/Display';
 import quizData  from '../../data/quiz';
 import Button from '../Button/Button';
@@ -19,6 +20,18 @@ export default function QuizPage()  {
         }
         setQuizIndex((prev) => prev + 1);//次の問題に進むための処理 現在のquizIndexに1足して保存する
     }
+
+    useEffect(()=> {
+        if(answerLogs.length === MAX_QUIZ_LEN){
+            navigation(ROUTES.RESULT, {
+                state: {
+                    maxQuizLen: MAX_QUIZ_LEN,
+                }
+            });
+        }
+    },[answerLogs])
+
+
     return (
         <>
             <Display>
