@@ -16,16 +16,14 @@ export default function QuizPage()  {
         if(clickedIndex === quizData[quizIndex].answerIndex){
             setAnswerLogs(prev => [...prev, true]);//...はスプレッド構文 より簡単な書き方で配列に要素を追加して保存
         } else {
-            setAnswerLogs((prev) => [...prev,false]);
+            setAnswerLogs(prev => [...prev,false]);
         }
-        setQuizIndex((prev) => prev + 1);//次の問題に進むための処理 現在のquizIndexに1足して保存する
+        setQuizIndex(prev => prev + 1);//次の問題に進むための処理 現在のquizIndexに1足して保存する
     }
 
     useEffect(()=> {
         if(answerLogs.length === MAX_QUIZ_LEN){
-            const correctNum = answerLogs.filter((answer)=> {//filterは配列に対して使えるメソッドで、配列の中から条件に合うものだけを取り出して新しい配列を作る
-                return answer === true
-            })
+            const correctNum = answerLogs.filter(answer=> answer === true) //filterは配列に対して使えるメソッドで、配列の中から条件に合うものだけを取り出して新しい配列を作る
             navigation(ROUTES.RESULT, {
                 state: {
                     maxQuizLen: MAX_QUIZ_LEN,
@@ -33,15 +31,14 @@ export default function QuizPage()  {
                 }
             });
         }
-    },[answerLogs])
+    },[answerLogs,MAX_QUIZ_LEN,navigation]);
 
     return (
         <>
-            {quizData[quizIndex] && <Display>{`Q1. ${quizData[quizIndex].question}`}</Display>}
-            {quizData[quizIndex] && quizData[quizIndex].options.map((option,index)=> {
-                return <Button key={`option-${index}`}onClick={()=>handleClick(index)}>{option}</Button>
-            })
-            }
+            {quizData[quizIndex] && <Display>{`Q${quizIndex +1}. ${quizData[quizIndex].question}`}</Display>}
+            {quizData[quizIndex] && quizData[quizIndex].options.map((option,index)=> 
+                <Button key={`option-${index}`}onClick={()=>handleClick(index)}>{option}</Button>
+            )}
         </>
     )
 }
