@@ -14,7 +14,7 @@ export default function QuizPage()  {
     const handleClick = (clickedIndex) => {
         //ここは関数型更新
         if(clickedIndex === quizData[quizIndex].answerIndex){
-            setAnswerLogs([...answerLogs((prev) => [...prev,true])]);//...はスプレッド構文 より簡単な書き方で配列に要素を追加して保存
+            setAnswerLogs(prev => [...prev, true]);//...はスプレッド構文 より簡単な書き方で配列に要素を追加して保存
         } else {
             setAnswerLogs((prev) => [...prev,false]);
         }
@@ -29,19 +29,16 @@ export default function QuizPage()  {
             navigation(ROUTES.RESULT, {
                 state: {
                     maxQuizLen: MAX_QUIZ_LEN,
-                    correctNum: correctNum
+                    correctNum: correctNum.length
                 }
             });
         }
     },[answerLogs])
 
-
     return (
         <>
-            <Display>
-                {`Q1. ${quizData[quizIndex].question}`}
-            </Display>
-            {quizData[quizIndex].options.map((option,index)=> {
+            {quizData[quizIndex] && <Display>{`Q1. ${quizData[quizIndex].question}`}</Display>}
+            {quizData[quizIndex] && quizData[quizIndex].options.map((option,index)=> {
                 return <Button key={`option-${index}`}onClick={()=>handleClick(index)}>{option}</Button>
             })
             }
