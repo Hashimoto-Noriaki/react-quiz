@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Display  from '../Display/Display';
 import quizData  from '../../data/quiz';
 import Button from '../Button/Button';
@@ -6,6 +7,9 @@ import Button from '../Button/Button';
 export default function QuizPage()  {
     const [quizIndex,setQuizIndex] = useState(0);
     const [answerLogs,setAnswerLogs] = useState([]);//[]は空の配列。これは答えを保存しておく
+    const navigation = useNavigate();
+    const MAX_QUIZ_LEN = quizData.length;
+
     const handleClick = (clickedIndex) => {
         //ここは関数型更新
         if(clickedIndex === quizData[quizIndex].answerIndex){
