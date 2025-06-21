@@ -11,7 +11,7 @@ export default function Result({maxQuizLen,correctNumLen}) {
                 </span>
                 でした‼︎
             </div>
-        <Confetti/>
+        <Confetti gravity={10} wind={1} friction={0.5}/>
         </>
     )
 }
