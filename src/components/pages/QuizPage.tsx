@@ -33,7 +33,7 @@ export default function QuizPage()  {
                 }
             });
         }
-    },[answerLogs])
+    },[answerLogs,MAX_QUIZ_LEN,navigation]);
 
     return (
         <>
