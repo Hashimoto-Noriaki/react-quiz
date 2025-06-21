@@ -20,3 +20,8 @@
 - 表示までの演出(カーテンコールを)1~2秒表示させて非表示
 - クラッカー演出
 - 閲覧総数と正解数を取得し、表示
+
+### クラッカー演出
+- ***react-confetti***
+
+https://www.npmjs.com/package/react-confetti
