@@ -29,4 +29,6 @@ https://www.npmjs.com/package/react-confetti
 ### 起動
 ```
 npm run dev
+
+yarn dev
 ```
