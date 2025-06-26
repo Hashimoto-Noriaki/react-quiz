@@ -4,16 +4,17 @@ import Button from '../Button/Button';
 
 export default function QuizPage() {
     const quizIndex = 0;
+    const handleClick = (clickedIndex)=> {
+        console.log("クリックしたよ",clickedIndex)
+    }
     return (
         <>
             <Display>
                 {`Q1.${quizData[quizIndex].question}`}
             </Display>
-            <Button>{quizData[quizIndex].options[0]}</Button>
-            <Button>{quizData[quizIndex].options[1]}</Button>
-            <Button>{quizData[quizIndex].options[2]}</Button>
-            <Button>{quizData[quizIndex].options[3]}</Button>
-            <Button>{quizData[quizIndex].options[4]}</Button>
+            {quizData[quizIndex].options.map((option,index)=> {
+                return <Button key={`option-${index}`} onClick={()=> handleClick(index)}>{option}</Button>
+            })} 
         </>
     )
 }
