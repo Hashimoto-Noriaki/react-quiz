@@ -30,7 +30,6 @@ const quizData: Data[] = [
         options:['1998年','1997年','1995年','1999年','1996年'],
         answerIndex:4,
     }
-
 ]
 
 export default quizData;
