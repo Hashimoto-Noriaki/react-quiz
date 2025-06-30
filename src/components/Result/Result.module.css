@@ -1,0 +1,11 @@
+.result {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    .resultHighLight {
+        font-size:20px;
+        font-weight: bold;
+    }
+}
