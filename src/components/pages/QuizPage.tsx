@@ -12,9 +12,9 @@ export default function QuizPage () {
     const MAX_QUIZ_LEN = quizData.length;
     const handleClick = (clickedIndex) => {
         if(clickedIndex === quizData[quizIndex].answerIndex){
-            setAnswerLogs(prev => prev,true)
+            setAnswerLogs(prev => [...prev,true])
         } else {
-            setAnswerLogs(prev => prev,false)
+            setAnswerLogs(prev => [...prev,false])
         }
         setQuizIndex(prev=> prev + 1);
     }
