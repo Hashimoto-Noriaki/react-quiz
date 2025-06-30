@@ -2,6 +2,7 @@ import { Link,useLocation } from 'react-router-dom';
 import { ROUTES } from '../../const';
 import Result from '../Result/Result';
 
+
 export default function Resultpage() {
     const location = useLocation();
     const maxQuizLen = location.state.maxQuizLen;
