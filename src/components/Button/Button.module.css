@@ -1,0 +1,11 @@
+.button {
+    font-size:20px;
+    width:100%;
+    background-color:yellow;
+    padding:10px 20px;
+    margin:10px 0;
+
+    .buttonInner {
+        color:black;
+    }
+}
